@@ -1,3 +1,5 @@
+<p align="center"><img src="docs/logo.png" alt="FPO Parakh logo" width="160"></p>
+
 # FPO Parakh app
 
 Flutter app for farmer producer organisations to complete their FPO Parakh assessment and download their rating report.
