@@ -1,0 +1,209 @@
+mutation SubmitBasicDetails($input: FPODetailsSubmissionInput!, $financialYear: String!, $fpoId: ID!) {
+  createFpoDetailsSubmission(input: $input, financialYear: $financialYear, fpoId: $fpoId) {
+    success
+    errors
+    submission {
+      id
+      nameOfProducerOrganization
+      registeredAddress
+      district
+      state
+      typeOfProducerOrganization
+      dateOfIncorporation
+      dateOfCommencement
+      ageOfFpoYears
+      typeOfFpo
+      sizeOfFpoFy2324
+      sizeOfFpoFy2223
+      sizeOfFpoFy2122
+      farmersTransacted
+      womenMembers
+      targetSizeOfFpo
+      dealsThroughPgsFigs
+      numPgsFigs
+      promotingAgencyName
+      typeOfPromotingAgency
+      otherPromotingAgencyType
+      receivedGrants
+      grantMakingOrganization
+      supportedByPromotingAgency
+    }
+  }
+}
+
+mutation SubmitGovernance($input: GovernanceSubmissionInput!, $financialYear: String!, $fpoId: ID!) {
+  createGovernanceSubmission(input: $input, financialYear: $financialYear, fpoId: $fpoId) {
+    success
+    errors
+    submission {
+      id
+      annualGeneralBodyMeetings
+      bodMeetingsLastFinancialYear
+      numBods
+      numWomenBods
+      minutesMaintenance
+    }
+  }
+}
+
+mutation SubmitCEOProfile($input: CEOProfileSubmissionInput!, $financialYear: String!, $fpoId: ID!) {
+  createCeoProfileSubmission(input: $input, financialYear: $financialYear, fpoId: $fpoId) {
+    success
+    errors
+    submission {
+      id
+      name
+      numberOfYearsAssociated
+      qualification
+      totalYearsOfExperience
+      typeOfExperience
+      yearlySubmission {
+        id
+        financialYear
+        status
+      }
+    }
+  }
+}
+
+mutation SubmitBoardProfiles($directors: [BoardDirectorProfileInput]!, $financialYear: String!, $fpoId: ID!) {
+  createBoardDirectorProfiles(directors: $directors, financialYear: $financialYear, fpoId: $fpoId) {
+    success
+    errors
+    directors {
+      id
+      name
+      educationalQualification
+      totalYearsOfExperience
+      typeOfExperience
+    }
+  }
+}
+
+mutation SubmitBusinessOperations($input: BusinessOperationsSubmissionInput!, $financialYear: String!, $fpoId: ID!) {
+  createBusinessOperationsSubmission(input: $input, financialYear: $financialYear, fpoId: $fpoId) {
+    success
+    errors
+    submission {
+      id
+      priceVolatilityOfProducts
+      yearlySubmission {
+        id
+        financialYear
+        status
+      }
+    }
+  }
+}
+
+mutation SubmitComplianceDetails($input: ComplianceDetailsSubmissionInput!, $financialYear: String!, $fpoId: ID!) {
+  createComplianceDetailsSubmission(input: $input, financialYear: $financialYear, fpoId: $fpoId) {
+    success
+    errors
+    submission {
+      id
+      actUnderRegistered
+      dateOfRegistration
+      permanentAccountNumber
+      placeOfRegistration
+      registrationNo
+      taxAccountNumber
+      yearlySubmission {
+        id
+        financialYear
+        status
+      }
+    }
+  }
+}
+
+mutation SubmitProcessesSystems($input: ProcessesSystemsSubmissionInput!, $financialYear: String!, $fpoId: ID!) {
+  createProcessesSystemsSubmission(input: $input, financialYear: $financialYear, fpoId: $fpoId) {
+    success
+    errors
+    submission {
+      id
+      accountsAndMis
+      booksAndRecordsUpToDate
+      creditRecordOfFpo
+      insuranceOfStock
+      penaltiesLeviedBoardMeeting
+      reconciliationOfStocks
+      statutoryFillings
+      yearlySubmission {
+        id
+        financialYear
+        status
+      }
+    }
+  }
+}
+
+mutation SubmitFinancialDetails($input: FinancialDetailsSubmissionV2Input!, $financialYear: String!, $fpoId: ID!) {
+  createFinancialDetailsSubmission: createFinancialDetailsSubmissionV2(input: $input, financialYear: $financialYear, fpoId: $fpoId) {
+    success
+    errors
+    submission {
+      id
+      yearlySubmission {
+        id
+        financialYear
+        status
+        financialDetails: financialDetailsV2 {
+          cashChequePercentage
+        }
+      }
+    }
+  }
+}
+
+mutation SubmitSustainableActivities($input: SustainableActivitiesSubmissionInput!, $financialYear: String!, $fpoId: ID!) {
+  createSustainableActivitiesSubmission(input: $input, financialYear: $financialYear, fpoId: $fpoId) {
+    success
+    errors
+    submission {
+      id
+      climateResilientSeedsToFarmers
+      compostingUnitsAtFpoLevel
+      dripSprinklerIrrigationToFarmers
+      establishmentOfRainwaterHarvestingAtFpoLevel
+      organicBioManureFertilizersToFarmers
+      pestDiseaseAlertsToFarmers
+      solarPanelsAtFpoLevel
+      supplyingAgriculturalResidueToBioCngGasPlants
+      trainingOnOrganicFarmingToFarmers
+      weatherAdvisoriesToFarmers
+      yearlySubmission {
+        id
+        financialYear
+        status
+      }
+    }
+  }
+}
+
+mutation CreateFPO($name: String!, $email: String!, $phone: String!, $addressLine1: String!, $addressLine2: String, $city: String!, $district: String!, $state: String!, $pincode: String!, $alternatePhone: String, $logo: String) {
+  createFpo(name: $name, email: $email, phone: $phone, addressLine1: $addressLine1, addressLine2: $addressLine2, city: $city, district: $district, state: $state, pincode: $pincode, alternatePhone: $alternatePhone, logo: $logo) {
+    success
+    errors
+    fpo {
+      id
+      name
+      email
+      phone
+      addressLine1
+      addressLine2
+      city
+      district
+      state
+      pincode
+      alternatePhone
+      logo
+      isActive
+      verificationStatus
+      verificationNotes
+      createdAt
+      updatedAt
+    }
+  }
+}

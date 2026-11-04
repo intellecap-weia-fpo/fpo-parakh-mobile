@@ -1,0 +1,20 @@
+targets:
+  $default:
+    builders:
+      graphql_codegen:
+        options:
+          clients:
+            - graphql
+            - graphql_flutter
+          scalars:
+            Decimal:
+              type: String
+            GenericScalar:
+              type: dynamic
+          schema_mapping:
+            - schema: lib/schema.graphql
+              queries_glob: lib/graphql/**/*.graphql
+              output: lib/graphql/
+          fragments_glob: lib/graphql/**/*.graphql
+          naming_convention: pathedWithFields
+          add_introspection_types: false

@@ -1,0 +1,32 @@
+# FPO Parakh app
+
+Flutter app for farmer producer organisations to complete their FPO Parakh assessment and download their rating report.
+
+## Requirements
+
+- Flutter 3.41 ([fvm](https://fvm.app) reads the version from `.fvmrc`, if present).
+- A running [fpo-parakh](https://github.com/intellecap-weia-fpo/fpo-parakh) server.
+
+## Build and run
+
+```bash
+flutter pub get
+flutter run --dart-define=GRAPHQL_ENDPOINT=http://10.0.2.2:8000/graphql/ --dart-define=API_BASE_URL=http://10.0.2.2:8000
+```
+
+Android emulators reach a server on your computer at `10.0.2.2`. Release builds need your own signing setup; no signing keys are in this repository.
+
+## Tests
+
+```bash
+flutter analyze
+flutter test
+```
+
+## Community
+
+See the [privacy notice](PRIVACY.md), [CONTRIBUTING.md](CONTRIBUTING.md), [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) and [SECURITY.md](SECURITY.md).
+
+## Copyright and licence
+
+Copyright (C) 2025-2026 IntelleCap Advisory Services Pvt. Ltd.. Licensed under the Apache License, Version 2.0; see [LICENSE](LICENSE) and [NOTICE](NOTICE).
